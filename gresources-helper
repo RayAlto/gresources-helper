@@ -24,6 +24,10 @@ compile_command = [
     'resources.xml'
 ]
 
+if not os.path.isabs(resources_dir):
+    resources_dir = os.path.realpath(
+        os.path.join(os.path.dirname(__file__), resources_dir))
+
 if not os.path.exists(resources_dir):
     print(f'"{resources_dir}": does not exist')
     sys.exit(-1)
